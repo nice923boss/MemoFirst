@@ -1,0 +1,25 @@
+{
+  "name": "memofirst",
+  "version": "1.0.0",
+  "description": "MemoFirst - LAN-only collaborative meeting efficiency tool",
+  "author": "黃政文",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "setup": "npm run setup --workspace=server",
+    "build": "npm run build --workspace=client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "recharts": "^3.7.0"
+  }
+}

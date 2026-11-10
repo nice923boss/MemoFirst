@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MemoFirst 使用說明</title>
+<style>
+  body { font-family: "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif; line-height: 1.7; color: #1f2937; max-width: 780px; margin: 0 auto; padding: 32px 20px; background: #f8fafc; }
+  h1 { color: #1d4ed8; font-size: 26px; margin-bottom: 4px; }
+  h2 { color: #111827; font-size: 19px; margin-top: 32px; border-bottom: 2px solid #e5e7eb; padding-bottom: 6px; }
+  .lead { color: #6b7280; margin-top: 0; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 8px 0; }
+  code { background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 4px; font-size: 0.92em; }
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 22px; margin: 16px 0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .tip { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+  .warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+  footer { margin-top: 40px; color: #9ca3af; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>MemoFirst 使用說明</h1>
+  <p class="lead">先讀後議的會議協作工具。免帳號、免密碼，用公司的 Tailscale 私有網路連線。</p>
+
+  <div class="card tip">
+    <strong>一句話：</strong>裝好 Tailscale、登入公司的 tailnet，用管理者給你的網址開啟，就能直接用。
+  </div>
+
+  <h2>第一次使用（三步）</h2>
+  <ol>
+    <li>安裝 <strong>Tailscale</strong>：到 <code>https://tailscale.com/download</code> 下載安裝。</li>
+    <li>用公司/團隊的帳號 <strong>登入 Tailscale</strong>（與 MemoFirst 主機同一個 tailnet）。若沒有邀請，請找管理者邀你加入。</li>
+    <li>用瀏覽器開啟管理者給你的網址（形如 <code>https://主機名.xxx.ts.net:28470/</code>）。系統會自動以你的 Tailscale 身分登入。</li>
+  </ol>
+
+  <h2>怎麼用</h2>
+  <ul>
+    <li><strong>建立會議</strong>：首頁按「建立新會議」，填標題、選範本（可略）。若想限制觀看，可設「加入密碼」。</li>
+    <li><strong>加入會議</strong>：點會議、輸入你的暱稱即可協作。若該會議有加入密碼，先輸入密碼。</li>
+    <li><strong>協作</strong>：多人可同時編輯同一份文檔、互相批註、聚焦討論。</li>
+  </ul>
+
+  <div class="card warn">
+    <strong>開不了？</strong>
+    <ul style="margin:8px 0 0;">
+      <li>確認 Tailscale 顯示「Connected」。</li>
+      <li>用管理者給的 <code>https://...ts.net</code> 網址，不要用 IP 或 localhost。</li>
+      <li>若顯示「請透過 Tailscale 網址存取」，代表你尚未登入同一個 tailnet，請找管理者確認你已被邀請。</li>
+    </ul>
+  </div>
+
+  <footer>MemoFirst｜製作人：黃政文</footer>
+</body>
+</html>
