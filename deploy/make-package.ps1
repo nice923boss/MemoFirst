@@ -114,7 +114,9 @@ if (Get-ChildItem (Join-Path $dist "logs") -File -Recurse -ErrorAction SilentlyC
 Write-Host "[5/6] 壓縮 zip…" -ForegroundColor Cyan
 $zip = Join-Path $Deploy "dist\MemoFirst-portable.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
-& tar.exe -a -cf $zip -C (Join-Path $Deploy "dist") "MemoFirst"
+# Explicit System32 path: Git Bash on PATH would otherwise shadow it with GNU tar (no zip support).
+# hdrcharset=UTF-8: store Chinese file names as UTF-8 (flagged) so non-CP950 systems extract them correctly.
+& "$env:SystemRoot\System32\tar.exe" --options hdrcharset=UTF-8 -a -cf $zip -C (Join-Path $Deploy "dist") "MemoFirst"
 if ($LASTEXITCODE -ne 0) { Fail "tar 壓縮失敗（結束碼 $LASTEXITCODE）" }
 $zipMb = [math]::Round((Get-Item $zip).Length / 1MB, 1)
 Write-Host "  zip 完成：$zip（$zipMb MB）" -ForegroundColor Green
